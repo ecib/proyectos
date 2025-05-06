@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Formularios - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">TRACK BIENESTAR - Portal Administración</div>
+        <div><span>Admin Usuario</span> <a href="login.html">Salir</a></div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="sidebar">
+             <h3>Menú Principal</h3>
+            <ul>
+                <li><a href="dashboard_admin.html">Dashboard</a></li>
+                <li><a href="#">Agenda Global</a></li>
+                <li><a href="gestion_pacientes_admin.html">Pacientes</a></li>
+                <li><a href="#">Pagos y Facturación</a></li>
+                <li><a href="#">Terapeutas</a></li>
+                <li><a href="gestion_servicios_admin.html">Servicios y Paquetes</a></li>
+                <li><a href="config_formularios_admin.html" class="active">Config. Formularios</a></li>
+                <li><a href="#">Reportes</a></li>
+                <li><a href="#">Configuración Centro</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Configuración de Plantillas de Formulario</h2>
+            <button type="button" class="button" style="margin-bottom: 20px;">Crear Nueva Plantilla de Formulario</button>
+
+            <div class="card">
+                <h3>PLANTILLAS EXISTENTES</h3>
+                <table>
+                    <thead><tr><th>Nombre Documento</th><th>Código</th><th>Versión Actual</th><th>Última Modificación</th><th>Acciones</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Consentimiento Informado</td>
+                            <td>EST-FOR-26</td>
+                            <td>3</td>
+                            <td>21-03-2025</td>
+                            <td><button class="secondary">Editar</button> <button class="secondary" style="margin-left:5px;">Ver Historial</button></td>
+                        </tr>
+                        <tr>
+                            <td>Formato de Consulta Inicial</td>
+                            <td>EST-FOR-25</td>
+                            <td>0</td>
+                            <td>13-01-2025</td>
+                            <td><button class="secondary">Editar</button> <button class="secondary" style="margin-left:5px;">Ver Historial</button></td>
+                        </tr>
+                         <tr>
+                            <td>Encuesta de Satisfacción Post-Servicio</td>
+                            <td>SAT-FOR-01</td>
+                            <td>1.2</td>
+                            <td>10-06-2024</td>
+                            <td><button class="secondary">Editar</button> <button class="secondary" style="margin-left:5px;">Ver Historial</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 30px;"> <!-- Simulación de edición de un formulario -->
+                <h3>EDITAR PLANTILLA: Consentimiento Informado (EST-FOR-26)</h3>
+                <form action="#">
+                    <div class="form-group">
+                        <label for="form_name">Nombre del Documento:</label>
+                        <input type="text" id="form_name" name="form_name" value="Consentimiento Informado">
+                    </div>
+                     <div class="form-group">
+                        <label for="form_code">Código del Documento:</label>
+                        <input type="text" id="form_code" name="form_code" value="EST-FOR-26">
+                    </div>
+                     <div class="form-group">
+                        <label for="form_version">Nueva Versión (ej. 3.1):</label>
+                        <input type="text" id="form_version" name="form_version" value="3.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="form_content">Contenido del Formulario (HTML o Markdown con placeholders):</label>
+                        <textarea id="form_content" name="form_content" rows="10" placeholder="Yo, {{NombrePaciente}}, identificado con {{IDPaciente}}...">Entiendo que este tratamiento se basa en la información proporcionada en mi historia clínica y es mi responsabilidad mantener informado sobre mi estado de salud física y mental, por lo tanto debo exponer todos mis antecedentes clínicos y patológicos que he tenido durante toda la vida al momento de la evaluación, con el fin de identificar alguna contraindicación al momento de ser tratado manualmente, puesto que estas intervenciones tienen un propósito terapéutico y de total confidencialidad y que por lo tanto asumo la responsabilidad por la omisión de cualquier información relevante sobre mis patologías actuales, entendiendo que esto podría afectar los resultados del tratamiento.
+
+Asimismo, se me ha solicitado asistir con ropa deportiva, que permita la adecuada realización del examen físico, para las sesiones de terapia física, presentarme en ropa cómoda y ligera o de cambio (pantaloneta, camiseta y tenis), sin accesorios metálicos y con la disposición para realizar las actividades que el terapeuta me indique.
+
+2. Riesgos y Beneficios: 
+He sido debidamente informado sobre las técnicas y zonas a tratar en caso de terapia manual, en especial sobre: Masaje con fines terapéuticos que incluye zona lumbar, glúteos, isquiotibiales, gastronemios, zona inguinal (iliopsoas), cuádriceps y zona anterior e interna de miembros inferiores y plantas de pies. Masaje de drenaje linfático y/o terapéutico incluye en miembros inferiores masaje suave en planos posterior y anterior, leve presión hacia zona inguinal y hacia fosa poplítea; y en tren superior incluye masaje en planos anterior (pecho y abdomen) y posterior (espalda) con leve presión hacia región axilar. Masaje de liberación craneofacial incluye toda la cabeza, el cuello, el pecho, tejido blando interno de la boca. Entiendo que estas terapias no diagnostican afecciones, enfermedades ni otros trastornos físicos ni mentales, tampoco prescriben tratamientos médicos alguno ni medicamentos. Se me ha dejado claro que las técnicas no son un sustituto del examen o el diagnóstico médico, y se me ha recomendado que vea a un médico si sufro de alguna otra patología.
+                        </textarea>
+                        <small>Usa placeholders como <code>{{NombrePaciente}}</code>, <code>{{IDPaciente}}</code>, <code>{{FechaActual}}</code> que serán reemplazados dinámicamente.</small>
+                    </div>
+                    <button type="submit">Guardar Cambios como Nueva Versión</button>
+                    <button type="button" class="secondary" style="margin-left:10px;">Previsualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

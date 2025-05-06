@@ -1,0 +1,18 @@
++-------------------------------------------+
+| (Icono Menú)      Bienvenido, [Nombre]    |
+|-------------------------------------------|
+| {PRÓXIMA CITA}                            |
+| Fecha: DD/MM/AA Hora: HH:MM               |
+| Terapeuta: Nombre Terapeuta               |
+| Servicio: Nombre Servicio                 |
+|                 (Botón: Ver Detalles)     |
+|-------------------------------------------|
+| {MIS FORMULARIOS PENDIENTES}              |
+| - Consentimiento Informado (Revisar)      |
+| - Plan de Tratamiento (Esperando Plan)    |
+|-------------------------------------------|
+| (Botón: Agendar Nueva Cita)               |
+| (Botón: Mi Historia Clínica)              |
+| (Botón: Mis Pagos)                        |
+| (Botón: Mensajes (3))                     |
++-------------------------------------------+

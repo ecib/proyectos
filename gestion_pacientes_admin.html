@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pacientes - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">TRACK BIENESTAR - Portal Administración</div>
+        <div><span>Admin Usuario</span> <a href="login.html">Salir</a></div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="sidebar">
+             <h3>Menú Principal</h3>
+            <ul>
+                <li><a href="dashboard_admin.html">Dashboard</a></li>
+                <li><a href="#">Agenda Global</a></li>
+                <li><a href="gestion_pacientes_admin.html" class="active">Pacientes</a></li>
+                <li><a href="#">Pagos y Facturación</a></li>
+                <li><a href="#">Terapeutas</a></li>
+                <li><a href="gestion_servicios_admin.html">Servicios y Paquetes</a></li>
+                <li><a href="config_formularios_admin.html">Config. Formularios</a></li>
+                <li><a href="#">Reportes</a></li>
+                <li><a href="#">Configuración Centro</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Gestión de Pacientes</h2>
+            <div style="margin-bottom: 20px; display:flex; justify-content:space-between; align-items:center;">
+                <a href="#" class="button">Registrar Nuevo Paciente</a>
+                <input type="text" placeholder="Buscar paciente por nombre, ID o teléfono..." style="width: 300px; padding:10px; border-radius:4px; border:1px solid #ccc;">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre Paciente</th>
+                        <th>ID</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Próxima Cita</th>
+                        <th>Estado Formularios</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ana Pérez</td>
+                        <td>P00123</td>
+                        <td>3001234567</td>
+                        <td>ana.perez@email.com</td>
+                        <td>26/07/2024 10:00 AM</td>
+                        <td><span style="color:green;">OK</span></td>
+                        <td><a href="#" class="button secondary" style="font-size:0.8em;padding:5px 8px;">Ver Ficha</a> <a href="#" class="button" style="font-size:0.8em;padding:5px 8px;">Editar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Carlos López</td>
+                        <td>P00124</td>
+                        <td>3109876543</td>
+                        <td>carlos.lopez@email.com</td>
+                        <td>-</td>
+                        <td><span style="color:orange;">Consent. Pendiente</span></td>
+                        <td><a href="#" class="button secondary" style="font-size:0.8em;padding:5px 8px;">Ver Ficha</a> <a href="#" class="button" style="font-size:0.8em;padding:5px 8px;">Editar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Laura Gómez</td>
+                        <td>P00125</td>
+                        <td>3205551212</td>
+                        <td>laura.gomez@email.com</td>
+                         <td>25/07/2024 03:00 PM</td>
+                        <td><span style="color:green;">OK</span></td>
+                        <td><a href="#" class="button secondary" style="font-size:0.8em;padding:5px 8px;">Ver Ficha</a> <a href="#" class="button" style="font-size:0.8em;padding:5px 8px;">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

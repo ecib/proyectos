@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Tratamiento - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><a href="dashboard_paciente.html" style="color:white; text-decoration:none;">&lt; Volver</a></div>
+        <div>PLAN DE TRATAMIENTO</div>
+        <div></div> <!-- Espaciador -->
+    </div>
+
+    <div class="container">
+        <h2>Revisa tu Plan de Tratamiento</h2>
+        <p>Tu terapeuta, <strong>Dr. Ejemplo Quiropráctico</strong>, ha preparado el siguiente plan:</p>
+
+        <div class="card">
+            <h3>IMPRESIÓN DIAGNÓSTICA</h3>
+            <p><em>[Aquí se mostrará la impresión diagnóstica ingresada por el terapeuta. Ej: Lumbalgia mecánica con posible discopatía L4-L5.]</em></p>
+        </div>
+
+        <div class="card">
+            <h3>OBJETIVOS</h3>
+            <ol>
+                <li><em>[Objetivo 1 del terapeuta: Reducir dolor lumbar en un 50% en 2 semanas.]</em></li>
+                <li><em>[Objetivo 2 del terapeuta: Mejorar rango de movilidad de la columna lumbar.]</em></li>
+                <li><em>[Objetivo 3 del terapeuta: Educar al paciente en ejercicios de fortalecimiento core.]</em></li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h3>TRATAMIENTO TRACK</h3>
+            <p><strong>Línea:</strong> <em>[Línea Vital]</em></p>
+            <p><strong>Servicio:</strong> <em>[Esencial Flex 1]</em></p>
+            <p><strong>Total Sesiones:</strong> <em>[5]</em></p>
+            <p><strong>Veces por Semana:</strong> <em>[2]</em></p>
+            <p><strong>Costo Total:</strong> $<em>[800,000]</em></p>
+            <p><strong>Reserva (si aplica):</strong> $<em>[200,000]</em></p>
+            <p><strong>Fecha Saldo:</strong> <em>[DD/MM/AAAA]</em></p>
+            <p><strong>Forma de Pago Sugerida:</strong> <em>[Transferencia]</em></p>
+            <p><strong>Observaciones del Terapeuta:</strong> <em>[Traer ropa cómoda para las sesiones.]</em></p>
+        </div>
+
+        <form action="dashboard_paciente.html"> <!-- Simula aceptación y regreso -->
+            <div class="form-group" style="display: flex; align-items: center;">
+                <input type="checkbox" id="acepto_plan" name="acepto_plan" required style="width: auto; margin-right: 10px;">
+                <label for="acepto_plan" style="font-weight: normal; margin-bottom: 0;">Acepto el Plan de Tratamiento propuesto.</label>
+            </div>
+
+            <div class="form-group">
+                <h3>FIRMA DE ACEPTACIÓN</h3>
+                <div class="signature-area">
+                    (Área para dibujar firma digital)
+                </div>
+                <button type="button" class="secondary">Borrar Firma</button>
+            </div>
+            
+            <button type="submit">Aceptar Plan</button>
+        </form>
+    </div>
+</body>
+</html>

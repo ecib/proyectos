@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro (Paso 2) - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px;">
+        <h1 style="text-align: center;">COMPLETA TU PERFIL (1/2)</h1>
+        <h3>I. DATOS GENERALES</h3>
+        <form action="registro_paso3.html">
+            <div class="form-group">
+                <label for="birthdate">Fecha Nacimiento:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Edad:</label>
+                <input type="number" id="age" name="age" readonly placeholder="Se calculará automáticamente">
+            </div>
+            <div class="form-group">
+                <label for="doc_id">Documento ID:</label>
+                <input type="text" id="doc_id" name="doc_id" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Sexo:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="O">Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="civil_status">Estado Civil:</label>
+                <select id="civil_status" name="civil_status">
+                    <option value="">Seleccionar...</option>
+                    <option value="Soltero">Soltero/a</option>
+                    <option value="Casado">Casado/a</option>
+                    <option value="Divorciado">Divorciado/a</option>
+                    <option value="Viudo">Viudo/a</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="occupation">Ocupación:</label>
+                <input type="text" id="occupation" name="occupation">
+            </div>
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <button type="submit" style="width: 100%;">Siguiente</button>
+        </form>
+    </div>
+</body>
+</html>

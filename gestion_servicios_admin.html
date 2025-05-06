@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Servicios - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">TRACK BIENESTAR - Portal Administración</div>
+        <div><span>Admin Usuario</span> <a href="login.html">Salir</a></div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="sidebar">
+             <h3>Menú Principal</h3>
+            <ul>
+                <li><a href="dashboard_admin.html">Dashboard</a></li>
+                <li><a href="#">Agenda Global</a></li>
+                <li><a href="gestion_pacientes_admin.html">Pacientes</a></li>
+                <li><a href="#">Pagos y Facturación</a></li>
+                <li><a href="#">Terapeutas</a></li>
+                <li><a href="gestion_servicios_admin.html" class="active">Servicios y Paquetes</a></li>
+                <li><a href="config_formularios_admin.html">Config. Formularios</a></li>
+                <li><a href="#">Reportes</a></li>
+                <li><a href="#">Configuración Centro</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Gestión de Servicios y Paquetes</h2>
+            <a href="editar_servicio_admin.html" class="button" style="margin-bottom: 20px;">Añadir Nuevo Servicio/Paquete</a>
+
+            <div class="card">
+                <h3>LÍNEA VITAL</h3>
+                <table>
+                    <thead><tr><th>Nombre Servicio</th><th>Precio</th><th>Duración</th><th>Acciones</th></tr></thead>
+                    <tbody>
+                        <tr><td>Esencial Flex 1</td><td>$180,000</td><td>45 min</td><td><a href="editar_servicio_admin.html" class="button secondary">Editar</a> <button class="danger">Eliminar</button></td></tr>
+                        <tr><td>Recupera Flex</td><td>$290,000</td><td>60 min</td><td><a href="editar_servicio_admin.html" class="button secondary">Editar</a> <button class="danger">Eliminar</button></td></tr>
+                        <tr><td>Focal Advance</td><td>$370,000</td><td>60 min</td><td><a href="editar_servicio_admin.html" class="button secondary">Editar</a> <button class="danger">Eliminar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>LÍNEA SANAR</h3>
+                 <table>
+                    <thead><tr><th>Nombre Servicio</th><th>Precio</th><th>Duración</th><th>Acciones</th></tr></thead>
+                    <tbody>
+                        <tr><td>Vertebral Force</td><td>$280,000</td><td>50 min</td><td><a href="editar_servicio_admin.html" class="button secondary">Editar</a> <button class="danger">Eliminar</button></td></tr>
+                        <tr><td>Cervical Power</td><td>$280,000</td><td>50 min</td><td><a href="editar_servicio_admin.html" class="button secondary">Editar</a> <button class="danger">Eliminar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h3>LÍNEA PREMIUM / PAQUETES</h3>
+                 <table>
+                    <thead><tr><th>Nombre Paquete</th><th>Precio</th><th>Sesiones Incluidas</th><th>Acciones</th></tr></thead>
+                    <tbody>
+                        <tr><td>Pack Premium Silver</td><td>$1,200,000</td><td>5 (varios servicios)</td><td><a href="editar_servicio_admin.html" class="button secondary">Editar</a> <button class="danger">Eliminar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

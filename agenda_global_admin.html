@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Global - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ... (Estilos específicos de la agenda que ya tenías) ... */
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <!-- ... Contenido del Navbar ... -->
+    </div>
+
+    <div style="display: flex;">
+        <!-- INICIO DE PLANTILLA SIDEBAR (PEGADA AQUÍ) -->
+        <div class="sidebar">
+            <h3>Menú Principal</h3>
+            <ul>
+                <li><a href="dashboard_admin.html">Dashboard</a></li>
+                <li><a href="agenda_global_admin.html">Agenda Global</a></li>
+                <li><a href="gestion_pacientes_admin.html">Pacientes</a></li>
+                <li><a href="pagos_facturacion_admin.html">Pagos y Facturación</a></li>
+                <li><a href="gestion_terapeutas_admin.html">Terapeutas</a></li>
+                <li><a href="gestion_servicios_admin.html">Servicios y Paquetes</a></li>
+                <li><a href="reportes_admin.html">Reportes</a></li>
+                <li><a href="config_formularios_admin.html">Config. Formularios</a></li>
+                <li><a href="#">Configuración del Centro</a></li>
+            </ul>
+        </div>
+        <!-- FIN DE PLANTILLA SIDEBAR -->
+
+        <div class="main-content agenda-container">
+            <!-- ... (Todo el contenido principal específico de la agenda global) ... -->
+        </div>
+    </div>
+
+    <!-- ... (Modal para Agendar Nueva Cita que ya tenías) ... -->
+
+    <!-- INICIO DE SCRIPT PARA SIDEBAR ACTIVO (PEGADO AQUÍ) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split('/').pop();
+        const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+
+        sidebarLinks.forEach(link => {
+            link.classList.remove('active'); 
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+             else if ((currentPage === '' || currentPage.endsWith('/') || currentPage === 'index.html' || currentPage === 'dashboard_admin.html' && !linkPage.includes('.')) && linkPage === 'dashboard_admin.html') {
+                link.classList.add('active');
+            }
+        });
+    });
+    </script>
+    <!-- FIN DE SCRIPT PARA SIDEBAR ACTIVO -->
+
+    <!-- Scripts específicos de la página de agenda (modal, etc.) que ya tenías -->
+    <script>
+        // ... (el JavaScript para el modal y la lógica de la agenda) ...
+    </script>
+</body>
+</html>

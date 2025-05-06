@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consentimiento Informado - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><a href="dashboard_paciente.html" style="color:white; text-decoration:none;">&lt; Volver</a></div>
+        <div>CONSENTIMIENTO INFORMADO</div>
+        <div></div>
+    </div>
+
+    <div class="container">
+        <h2>CONSENTIMIENTO INFORMADO PARA VALORACIÓN OSTEOMUSCULAR Y TRATAMIENTO DE REHABILITACIÓN FÍSICA.</h2>
+        <p style="font-size: 0.9em; color: #555;">
+            Proceso: GESTIÓN DE LA CALIDAD <br>
+            Nombre del Documento: CONSENTIMIENTO INFORMADO <br>
+            Código: EST-FOR-26 Versión: 3 FECHA: 21-03-2025 Página 1 de 2
+        </p>
+        <hr>
+
+        <p>Yo, <strong>[Nombre Paciente Automático]</strong>, identificado con el número de documento de la ciudad de <strong>[Ciudad Automática]</strong>, declaro que he sido informado/a de manera clara y comprensible sobre el procedimiento de valoración osteomuscular y el tratamiento de recuperación física que se me realizará.</p>
+
+        <div class="card" style="max-height: 200px; overflow-y: auto; background-color: #fff;">
+            <h3>Términos y Condiciones (EST-FOR-26)</h3>
+            <p>Entiendo que este tratamiento se basa en la información proporcionada en mi historia clínica y es mi responsabilidad mantener informado sobre mi estado de salud física y mental, por lo tanto debo exponer todos mis antecedentes clínicos y patológicos que he tenido durante toda la vida al momento de la evaluación, con el fin de identificar alguna contraindicación al momento de ser tratado manualmente...</p>
+            <p><em>[...Aquí iría el texto completo del consentimiento...]</em></p>
+            <p>2. Riesgos y Beneficios: He sido debidamente informado sobre las técnicas y zonas a tratar...</p>
+            <p><em>[...Más texto del consentimiento...]</em></p>
+        </div>
+
+        <div class="form-group">
+            <h3>AUTORIZACIÓN FAMILIAR O TUTOR (Si aplica)</h3>
+            <label for="familiar_nombre">Nombre del Familiar/Tutor:</label>
+            <input type="text" id="familiar_nombre" name="familiar_nombre">
+            <label for="familiar_id" style="margin-top:10px;">Documento de Identidad del Familiar/Tutor:</label>
+            <input type="text" id="familiar_id" name="familiar_id">
+        </div>
+        
+        <div class="form-group">
+            <input type="checkbox" id="acepto_terminos" name="acepto_terminos" style="width: auto; margin-right: 5px;">
+            <label for="acepto_terminos" style="display: inline; font-weight: normal;">He leído y comprendido el consentimiento informado y acepto los términos y condiciones.</label>
+        </div>
+
+        <div class="form-group">
+            <h3>FIRMA DEL USUARIO</h3>
+            <div class="signature-area">
+                (Área para dibujar firma digital)
+            </div>
+            <button type="button" class="secondary">Borrar Firma</button>
+        </div>
+        
+        <button type="submit">Firmar y Enviar</button>
+
+    </div>
+</body>
+</html>
