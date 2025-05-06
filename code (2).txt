@@ -1,0 +1,16 @@
++-------------------------------------------+
+|          COMPLETA TU PERFIL (2/2)         |
+|          {II. VALORACIÓN (Inicial)}       |
+|                                           |
+| Motivo Principal Consulta:                |
+| [Texto Largo: Describe tu motivo]         |
+|                                           |
+| Antecedentes Osteomusculares (Opcional):  |
+| [Texto Largo]                             |
+| Rutina Ejercicio (Opcional):              |
+| [Texto Largo]                             |
+| Antecedentes Patológicos (Opcional):      |
+| [Texto Largo]                             |
+|                                           |
+|            (Botón: Finalizar Registro)    |
++-------------------------------------------+

@@ -1,0 +1,16 @@
++-------------------------------------------+
+|              TRACK BIENESTAR              |
+|                  [Logo]                   |
+|                                           |
+| Email:         [_____________________]    |
+| Contraseña:    [_____________________]    |
+|                                           |
+|                (Botón: Ingresar)          |
+|                                           |
+|         ¿Olvidaste tu contraseña?         |
+|         -------------------------         |
+|         (Botón: Login con Google)         |
+|         (Botón: Login con Facebook)       |
+|                                           |
+|     ¿No tienes cuenta? (Botón: Regístrate)|
++-------------------------------------------+

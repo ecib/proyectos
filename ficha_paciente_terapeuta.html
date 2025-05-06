@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Paciente - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><a href="dashboard_terapeuta.html" style="color:white; text-decoration:none;">&lt; Volver al Dashboard</a></div>
+        <div>FICHA DEL PACIENTE: Ana Pérez (ID: P00123)</div>
+        <div><span>Dr. Ejemplo Quiropráctico</span> <a href="login.html">Salir</a></div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="sidebar">
+            <h3>Menú Paciente</h3>
+            <ul>
+                <li><a href="#consulta-inicial" class="tab-button active" onclick="openTab(event, 'consulta-inicial')">Consulta Inicial (EST-FOR-25)</a></li>
+                <li><a href="#seguimiento" class="tab-button" onclick="openTab(event, 'seguimiento')">Seguimiento / Sesiones</a></li>
+                <li><a href="#documentos" class="tab-button" onclick="openTab(event, 'documentos')">Documentos</a></li>
+                <li><a href="#plan-pago" class="tab-button" onclick="openTab(event, 'plan-pago')">Plan de Pago</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <!-- Contenido de la Pestaña: Consulta Inicial -->
+            <div id="consulta-inicial" class="tab-content active">
+                <h2>Formulario de Consulta Inicial (EST-FOR-25)</h2>
+                <form action="#">
+                    <div class="card">
+                        <h3>I. DATOS GENERALES (Revisar/Completar)</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="p_nombre">Nombre Completo:</label>
+                                <input type="text" id="p_nombre" value="Ana Pérez" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="p_id">Documento ID:</label>
+                                <input type="text" id="p_id" value="P00123" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="p_fecha_nac">Fecha Nacimiento:</label>
+                                <input type="date" id="p_fecha_nac" value="1990-05-15" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="p_edad">Edad:</label>
+                                <input type="number" id="p_edad" value="34" readonly>
+                            </div>
+                             <div class="form-group">
+                                <label for="p_motivo">Motivo Consulta (Paciente):</label>
+                                <textarea id="p_motivo" readonly>Dolor en la espalda baja desde hace 3 semanas.</textarea>
+                            </div>
+                        </div>
+                         <!-- ... (más campos de datos generales llenados por paciente o recepción) -->
+                    </div>
+
+                    <div class="card">
+                        <h3>II. VALORACIÓN</h3>
+                        <div class="form-group">
+                            <label for="escala_dolor">Escala Subjetiva del Dolor (1-10):</label>
+                            <input type="number" id="escala_dolor" name="escala_dolor" min="0" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Señale Parte del Cuerpo con Dolor:</label>
+                            <div style="border:1px solid #ccc; padding:10px; min-height:150px; background: repeating-linear-gradient(45deg, #efefef, #efefef 10px, #fff 10px, #fff 20px);">
+                                (Placeholder para Diagrama Corporal Interactivo - Aquí el terapeuta marcaría las zonas)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hallazgos_examen">Hallazgos del Examen Físico (Peso, Estatura, etc.):</label>
+                            <textarea id="hallazgos_examen" name="hallazgos_examen" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="antecedentes_osteo_terapeuta">Antecedentes Osteomusculares (Complementar/Corregir):</label>
+                            <textarea id="antecedentes_osteo_terapeuta" name="antecedentes_osteo_terapeuta" rows="2"></textarea>
+                        </div>
+                         <!-- ... (más campos de antecedentes) -->
+                    </div>
+
+                    <div class="card">
+                        <h3>III. IMPRESIÓN DIAGNÓSTICA</h3>
+                        <div class="form-group">
+                            <textarea id="impresion_diagnostica" name="impresion_diagnostica" rows="4" placeholder="Ingrese la impresión diagnóstica..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>IV. PLAN DE MANEJO</h3>
+                        <div class="form-group"><label for="obj1">Objetivo 1:</label><input type="text" id="obj1" name="obj1"></div>
+                        <div class="form-group"><label for="obj2">Objetivo 2:</label><input type="text" id="obj2" name="obj2"></div>
+                        <div class="form-group"><label for="obj3">Objetivo 3:</label><input type="text" id="obj3" name="obj3"></div>
+                        
+                        <div class="form-group">
+                            <label for="trat_linea">Línea de Tratamiento Track:</label>
+                            <select id="trat_linea" name="trat_linea">
+                                <option value="">Seleccionar Línea...</option>
+                                <option value="vital">Línea Vital</option>
+                                <option value="sanar">Línea Sanar</option>
+                                <option value="premium">Línea Premium</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="trat_servicio">Servicio Específico:</label>
+                            <select id="trat_servicio" name="trat_servicio">
+                                <option value="">Seleccionar Servicio (depende de línea)...</option>
+                                <!-- Opciones se cargarían dinámicamente -->
+                                <option value="esencial_flex">Vital - Esencial Flex 1</option>
+                                <option value="vertebral_force">Sanar - Vertebral Force</option>
+                            </select>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group"><label for="total_sesiones">Total Sesiones:</label><input type="number" id="total_sesiones" name="total_sesiones"></div>
+                            <div class="form-group"><label for="veces_semana">Veces por Semana:</label><input type="number" id="veces_semana" name="veces_semana"></div>
+                            <div class="form-group"><label for="costo_total">Costo Total ($):</label><input type="number" id="costo_total" name="costo_total"></div>
+                            <div class="form-group"><label for="reserva">Reserva ($):</label><input type="number" id="reserva" name="reserva"></div>
+                            <div class="form-group"><label for="fecha_saldo">Fecha Saldo:</label><input type="date" id="fecha_saldo" name="fecha_saldo"></div>
+                            <div class="form-group">
+                                <label for="forma_pago">Forma de Pago:</label>
+                                <select id="forma_pago" name="forma_pago">
+                                    <option value="efectivo">Efectivo</option>
+                                    <option value="tarjeta">Tarjeta</option>
+                                    <option value="transferencia">Transferencia</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="obs_plan">Observaciones del Plan:</label>
+                            <textarea id="obs_plan" name="obs_plan" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>CONSENTIMIENTOS Y FIRMAS</h3>
+                        <p>Consentimiento Informado (EST-FOR-26): <strong>Firmado por Paciente (23/07/2024)</strong> <a href="#" class="button secondary" style="font-size:0.8em; padding:5px 10px;">Ver Documento</a></p>
+                        <p>Aceptación Plan de Tratamiento (EST-FOR-25): <strong>Pendiente de Aceptación por Paciente</strong></p>
+                        <div class="form-group">
+                            <label>Firma Profesional:</label>
+                            <div class="signature-area">(Área para firma digital del terapeuta)</div>
+                            <button type="button" class="secondary">Borrar Firma</button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit">Guardar y Notificar Plan al Paciente</button>
+                    <button type="button" class="secondary" style="margin-left:10px;">Guardar Cambios</button>
+                </form>
+            </div>
+
+            <!-- Contenido de la Pestaña: Seguimiento -->
+            <div id="seguimiento" class="tab-content">
+                <h2>Seguimiento de Sesiones</h2>
+                <button type="button" style="margin-bottom:15px;">Añadir Nueva Nota de Sesión</button>
+                <div class="card">
+                    <h4>Sesión 1 - Fecha: 24/07/2024</h4>
+                    <p><strong>Escala de Dolor (Pre-Sesión):</strong> 7/10</p>
+                    <p><strong>Notas:</strong> Se realizó ajuste quiropráctico en zona lumbar. Paciente refiere leve mejoría inmediata.</p>
+                    <p><strong>Plan para Próxima Sesión:</strong> Continuar con protocolo, añadir ejercicios de estiramiento.</p>
+                    <p><strong>Escala de Dolor (Post-Sesión):</strong> 5/10</p>
+                </div>
+                 <div class="card">
+                    <h4>Sesión 2 - Fecha: 26/07/2024</h4>
+                    <p><strong>Escala de Dolor (Pre-Sesión):</strong> 5/10</p>
+                    <p><strong>Notas:</strong> ...</p>
+                </div>
+            </div>
+
+            <!-- Contenido de la Pestaña: Documentos -->
+            <div id="documentos" class="tab-content">
+                <h2>Documentos del Paciente</h2>
+                <input type="file" style="margin-bottom:15px;"> <button type="button">Subir Documento</button>
+                <table>
+                    <thead><tr><th>Nombre Documento</th><th>Fecha Subida</th><th>Subido Por</th><th>Acciones</th></tr></thead>
+                    <tbody>
+                        <tr><td>Consentimiento_Firmado_APerez.pdf</td><td>23/07/2024</td><td>Paciente</td><td><a href="#" class="button secondary">Ver</a> <a href="#" class="button danger">Eliminar</a></td></tr>
+                        <tr><td>RayosX_Columna_APerez.jpg</td><td>24/07/2024</td><td>Terapeuta</td><td><a href="#" class="button secondary">Ver</a> <a href="#" class="button danger">Eliminar</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Contenido de la Pestaña: Plan de Pago -->
+            <div id="plan-pago" class="tab-content">
+                <h2>Plan de Pago y Facturación</h2>
+                <p><strong>Servicio Contratado:</strong> Línea Vital - Esencial Flex 1 (5 Sesiones)</p>
+                <p><strong>Costo Total:</strong> $800,000</p>
+                <p><strong>Reserva Pagada:</strong> $200,000 (23/07/2024 - Efectivo)</p>
+                <p><strong>Saldo Pendiente:</strong> $600,000</p>
+                <p><strong>Fecha Límite de Saldo:</strong> 15/08/2024</p>
+                <button type="button">Registrar Nuevo Pago</button>
+                <h4 style="margin-top:20px;">Historial de Pagos</h4>
+                <table>
+                     <thead><tr><th>Fecha</th><th>Monto</th><th>Método</th><th>Referencia</th></tr></thead>
+                     <tbody>
+                        <tr><td>23/07/2024</td><td>$200,000</td><td>Efectivo</td><td>Reserva Inicial</td></tr>
+                     </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tabbuttons;
+  tabcontent = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    tabcontent[i].classList.remove("active");
+  }
+  tabbuttons = document.getElementsByClassName("tab-button");
+  for (i = 0; i < tabbuttons.length; i++) {
+    tabbuttons[i].classList.remove("active");
+  }
+  document.getElementById(tabName).style.display = "block";
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+// Activa la primera pestaña por defecto
+document.addEventListener('DOMContentLoaded', (event) => {
+    if(document.querySelector('.tab-button.active')){
+         document.querySelector('.tab-button.active').click();
+    }
+});
+</script>
+</body>
+</html>

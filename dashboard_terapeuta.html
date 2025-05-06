@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Terapeuta - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">TRACK BIENESTAR - Portal Terapeuta</div>
+        <div>
+            <span>Dr. Ejemplo Quiropráctico</span>
+            <a href="login.html" style="margin-left:20px;">Salir</a>
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="sidebar">
+            <h3>Menú</h3>
+            <ul>
+                <li><a href="dashboard_terapeuta.html" class="active">Agenda</a></li>
+                <li><a href="#">Pacientes</a></li>
+                <li><a href="#">Mensajes</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Dashboard del Terapeuta</h2>
+            <p><strong>Fecha Actual:</strong> 24 de Julio de 2024</p>
+
+            <div class="card">
+                <h3>CITAS DE HOY</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Paciente</th>
+                            <th>Servicio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00 AM</td>
+                            <td>Ana Pérez</td>
+                            <td>Consulta Inicial</td>
+                            <td><a href="ficha_paciente_terapeuta.html" class="button secondary">Ver Ficha</a></td>
+                        </tr>
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td>Carlos López</td>
+                            <td>Ajuste de Seguimiento</td>
+                            <td><a href="ficha_paciente_terapeuta.html" class="button secondary">Ver Ficha</a></td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM</td>
+                            <td>Maria Rodriguez</td>
+                            <td>Línea Vital - Esencial Flex</td>
+                            <td><a href="ficha_paciente_terapeuta.html" class="button secondary">Ver Ficha</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>TAREAS PENDIENTES</h3>
+                <ul>
+                    <li>Completar notas de sesión para Carlos López.</li>
+                    <li>Revisar resultados de Rayos X para Ana Pérez (subidos por paciente).</li>
+                    <li>Preparar plan de ejercicios para Maria Rodriguez.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

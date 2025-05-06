@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro (Paso 3) - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px;">
+        <h1 style="text-align: center;">COMPLETA TU PERFIL (2/2)</h1>
+        <h3>II. VALORACIÓN (Inicial)</h3>
+        <form action="dashboard_paciente.html"> <!-- Asumiendo que lleva al dashboard -->
+            <div class="form-group">
+                <label for="consult_reason">Motivo Principal Consulta:</label>
+                <textarea id="consult_reason" name="consult_reason" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="antecedentes_osteo">Antecedentes Osteomusculares (Opcional):</label>
+                <textarea id="antecedentes_osteo" name="antecedentes_osteo" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="rutina_ejercicio">Rutina Ejercicio (Opcional):</label>
+                <textarea id="rutina_ejercicio" name="rutina_ejercicio" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="antecedentes_patologicos">Antecedentes Patológicos (Opcional):</label>
+                <textarea id="antecedentes_patologicos" name="antecedentes_patologicos" rows="2"></textarea>
+            </div>
+             <div class="form-group">
+                <label for="antecedentes_quirurgicos">Antecedentes Quirúrgicos (Opcional):</label>
+                <textarea id="antecedentes_quirurgicos" name="antecedentes_quirurgicos" rows="2"></textarea>
+            </div>
+             <div class="form-group">
+                <label for="antecedentes_alergicos">Antecedentes Alérgicos (Opcional):</label>
+                <textarea id="antecedentes_alergicos" name="antecedentes_alergicos" rows="2"></textarea>
+            </div>
+            <button type="submit" style="width: 100%;">Finalizar Registro</button>
+        </form>
+    </div>
+</body>
+</html>

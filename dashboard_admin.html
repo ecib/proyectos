@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administración - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">TRACK BIENESTAR - Portal Administración</div>
+        <div>
+            <span>Admin Usuario</span>
+            <a href="login.html" style="margin-left:20px;">Salir</a>
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="sidebar">
+            <h3>Menú Principal</h3>
+            <ul>
+                <li><a href="dashboard_admin.html" class="active">Dashboard</a></li>
+                <li><a href="agenda_global_admin.html">Agenda Global</a></li>
+                <li><a href="gestion_pacientes_admin.html">Pacientes</a></li>
+                <li><a href="pagos_facturacion_admin.html">Pagos y Facturación</a></li>
+                <li><a href="gestion_terapeutas_admin.html">Terapeutas</a></li>
+                <li><a href="gestion_servicios_admin.html">Servicios y Paquetes</a></li>
+                <li><a href="reportes_admin.html">Reportes</a></li>
+                <li><a href="config_formularios_admin.html">Config. Formularios</a></li>
+                <li><a href="#">Configuración del Centro</a></li> <!-- Placeholder para una futura página -->
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Dashboard General</h2>
+             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom:20px;">
+                <div class="card">
+                    <h4>Citas Hoy</h4>
+                    <p style="font-size: 2em; font-weight: bold; color: #0056b3;">15</p>
+                </div>
+                <div class="card">
+                    <h4>Pacientes Atendidos Hoy</h4>
+                    <p style="font-size: 2em; font-weight: bold; color: #0056b3;">8</p>
+                </div>
+                <div class="card">
+                    <h4>Nuevos Pacientes Hoy</h4>
+                    <p style="font-size: 2em; font-weight: bold; color: #0056b3;">2</p>
+                </div>
+                 <div class="card">
+                    <h4>Ingresos Hoy</h4>
+                    <p style="font-size: 2em; font-weight: bold; color: #28a745;">$1,250,000</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>ALERTAS IMPORTANTES</h3>
+                <ul>
+                    <li><span style="color:red;">3 Pagos Vencidos.</span> <a href="pagos_facturacion_admin.html">Ver detalles</a></li>
+                    <li>5 Formularios de Consentimiento pendientes de firma. <a href="#">Gestionar</a></li> <!-- Podría llevar a una sección de gestión de pacientes o formularios -->
+                    <li>Próximo vencimiento de paquete para Paciente "Laura Gómez".</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>ACCIONES RÁPIDAS</h3>
+                <a href="agenda_global_admin.html" class="button">Agendar Nueva Cita</a>
+                <a href="gestion_pacientes_admin.html" class="button secondary" style="margin-left:10px;">Registrar Nuevo Paciente</a> <!-- Asumiendo que en gestión de pacientes está el botón de registrar -->
+                <a href="reportes_admin.html" class="button secondary" style="margin-left:10px;">Ver Reporte de Ingresos</a> <!-- Podría preseleccionar el reporte de ingresos -->
+            </div>
+        </div>
+    </div>
+<script>
+    // Script para manejar la clase 'active' en el sidebar
+    // Esto es opcional y solo para mejorar la UI
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split('/').pop();
+        const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+        sidebarLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                // Primero quitar 'active' de todos
+                 sidebarLinks.forEach(l => l.classList.remove('active'));
+                // Luego añadir 'active' al link actual
+                link.classList.add('active');
+            } else if (currentPage === '' && link.getAttribute('href') === 'dashboard_admin.html') {
+                // Caso especial para la raíz (si dashboard_admin.html es el index de admin)
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>

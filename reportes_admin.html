@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Track Bienestar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la página de Reportes */
+        .report-selector {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+        }
+        .report-selector .form-group {
+            margin-right: 20px;
+            display: inline-block; /* Para que los filtros estén en línea */
+            min-width: 200px; /* Ancho mínimo para selectores */
+        }
+        .report-display-area {
+            border: 1px solid #ddd;
+            padding: 20px;
+            min-height: 400px; /* Espacio para mostrar gráficos o tablas */
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .report-display-area h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .chart-placeholder {
+            width: 100%;
+            height: 350px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .report-table-container {
+            max-height: 400px; /* Para tablas largas */
+            overflow-y: auto;
+        }
+        .report-actions button {
+            margin-right: 10px;
+        }
+    </style>
+    <!-- Opcional: Incluir una librería de gráficos como Chart.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">TRACK BIENESTAR - Portal Administración</div>
+        <div><span>Admin Usuario</span> <a href="login.html">Salir</a></div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="sidebar">
+             <h3>Menú Principal</h3>
+            <ul>
+                <li><a href="dashboard_admin.html">Dashboard</a></li>
+                <li><a href="agenda_global_admin.html">Agenda Global</a></li>
+                <li><a href="gestion_pacientes_admin.html">Pacientes</a></li>
+                <li><a href="pagos_facturacion_admin.html">Pagos y Facturación</a></li>
+                <li><a href="gestion_terapeutas_admin.html">Terapeutas</a></li>
+                <li><a href="gestion_servicios_admin.html">Servicios y Paquetes</a></li>
+                <li><a href="reportes_admin.html" class="active">Reportes</a></li>
+                <!-- ... otros items ... -->
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Generación de Reportes</h2>
+
+            <div class="report-selector card">
+                <h3>Seleccionar Reporte y Filtros</h3>
+                <form id="reportForm">
+                    <div class="form-group">
+                        <label for="reportType">Tipo de Reporte:</label>
+                        <select id="reportType" name="reportType" onchange="updateReportFilters()">
+                            <option value="">Seleccionar...</option>
+                            <option value="ingresos_periodo">1. Ingresos por Período</option>
+                            <option value="citas_terapeuta">2. Citas por Terapeuta</option>
+                            <option value="servicios_populares">3. Servicios Más Populares</option>
+                            <option value="pacientes_nuevos">4. Pacientes Nuevos vs Recurrentes</option>
+                            <option value="ocupacion_agenda">5. Ocupación de Agenda</option>
+                            <option value="desglose_agendamiento">6. Desglose de Agendamiento (como en tus notas)</option>
+                            <option value="satisfaccion_cliente">7. Satisfacción del Cliente (Resultados Encuestas)</option>
+                            <option value="pagos_metodo">8. Pagos por Método</option>
+                            <option value="deudores">9. Listado de Deudores</option>
+                        </select>
+                    </div>
+
+                    <div id="reportFiltersContainer">
+                        <!-- Los filtros se cargarán dinámicamente aquí según el tipo de reporte -->
+                        <div class="form-group">
+                            <label for="dateRangeStart">Fecha Desde:</label>
+                            <input type="date" id="dateRangeStart" name="dateRangeStart">
+                        </div>
+                        <div class="form-group">
+                            <label for="dateRangeEnd">Fecha Hasta:</label>
+                            <input type="date" id="dateRangeEnd" name="dateRangeEnd">
+                        </div>
+                         <!-- Ejemplo de filtro específico para un reporte -->
+                        <div class="form-group" id="therapistFilterGroup" style="display:none;">
+                            <label for="reportTherapist">Terapeuta:</label>
+                            <select id="reportTherapist" name="reportTherapist">
+                                <option value="all">Todos</option>
+                                <option value="t001">Dr. Ejemplo Quiropráctico</option>
+                                <option value="t002">Dra. Ana Salgado</option>
+                                <!-- ... más terapeutas ... -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="button" onclick="generateReport()">Generar Reporte</button>
+                </form>
+            </div>
+
+            <div class="report-display-area card">
+                <h3 id="reportTitle">Visualización del Reporte</h3>
+                <div id="reportContent">
+                    <p style="text-align:center; color:#777;">Seleccione un tipo de reporte y aplique filtros para ver los resultados aquí.</p>
+                    <!-- El contenido (tabla o gráfico) se cargará aquí -->
+                </div>
+                <div class="report-actions" style="margin-top: 20px; display:none;" id="reportActionButtons">
+                    <button type="button" class="secondary" onclick="printReport()"><img src="printer_icon.png" alt="" style="height:1em; vertical-align:middle; margin-right:5px;"> Imprimir Reporte</button>
+                    <button type="button" class="secondary" onclick="exportReport('csv')"><img src="csv_icon.png" alt="" style="height:1em; vertical-align:middle; margin-right:5px;"> Exportar a CSV</button>
+                    <button type="button" class="secondary" onclick="exportReport('pdf')"><img src="pdf_icon.png" alt="" style="height:1em; vertical-align:middle; margin-right:5px;"> Exportar a PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // Simulación básica de filtros dinámicos y generación de reportes
+
+    function updateReportFilters() {
+        const reportType = document.getElementById('reportType').value;
+        const filtersContainer = document.getElementById('reportFiltersContainer');
+        const therapistFilterGroup = document.getElementById('therapistFilterGroup');
+        
+        // Ocultar todos los filtros específicos primero
+        therapistFilterGroup.style.display = 'none';
+
+        // Mostrar filtros comunes (fechas) para la mayoría de los reportes
+        document.getElementById('dateRangeStart').closest('.form-group').style.display = 'inline-block';
+        document.getElementById('dateRangeEnd').closest('.form-group').style.display = 'inline-block';
+
+        // Mostrar filtros específicos según el tipo de reporte
+        if (reportType === 'citas_terapeuta' || reportType === 'ocupacion_agenda') {
+            therapistFilterGroup.style.display = 'inline-block';
+        } else if (reportType === 'servicios_populares' || reportType === 'pacientes_nuevos' || reportType === 'satisfaccion_cliente' || reportType === 'pagos_metodo' || reportType === 'deudores' || reportType === 'desglose_agendamiento') {
+            // Estos pueden necesitar solo rango de fechas o ningún filtro adicional por ahora
+        } else if (reportType === '') {
+            // Si no se selecciona reporte, ocultar filtros de fecha también
+             document.getElementById('dateRangeStart').closest('.form-group').style.display = 'none';
+             document.getElementById('dateRangeEnd').closest('.form-group').style.display = 'none';
+        }
+    }
+    
+    // Llamar una vez para establecer el estado inicial de los filtros
+    updateReportFilters();
+
+    function generateReport() {
+        const reportType = document.getElementById('reportType').value;
+        const reportTitleEl = document.getElementById('reportTitle');
+        const reportContentEl = document.getElementById('reportContent');
+        const reportActionButtons = document.getElementById('reportActionButtons');
+
+        if (!reportType) {
+            alert("Por favor, seleccione un tipo de reporte.");
+            reportContentEl.innerHTML = '<p style="text-align:center; color:#777;">Seleccione un tipo de reporte y aplique filtros para ver los resultados aquí.</p>';
+            reportTitleEl.textContent = "Visualización del Reporte";
+            reportActionButtons.style.display = 'none';
+            return;
+        }
+
+        const selectedReportText = document.getElementById('reportType').options[document.getElementById('reportType').selectedIndex].text;
+        reportTitleEl.textContent = `Reporte: ${selectedReportText.substring(selectedReportText.indexOf(' ') + 1)}`; // Quita el "N. "
+        reportContentEl.innerHTML = '<p style="text-align:center; color:#777;">Generando reporte, por favor espere...</p>';
+        reportActionButtons.style.display = 'block';
+
+        // SIMULACIÓN de generación de contenido (en una app real, esto vendría del backend)
+        setTimeout(() => {
+            let content = '';
+            if (reportType === 'ingresos_periodo') {
+                content = `
+                    <div class="chart-placeholder" id="ingresosChartPlaceholder">(Gráfico de Barras: Ingresos Mensuales)</div>
+                    <h4>Detalle de Ingresos</h4>
+                    <div class="report-table-container">
+                        <table>
+                            <thead><tr><th>Fecha</th><th>Factura ID</th><th>Paciente</th><th>Servicio</th><th>Monto</th></tr></thead>
+                            <tbody>
+                                <tr><td>01/07/2024</td><td>INV-001</td><td>Ana Pérez</td><td>Paquete Vital</td><td>$800,000</td></tr>
+                                <tr><td>02/07/2024</td><td>INV-002</td><td>Carlos López</td><td>Consulta</td><td>$150,000</td></tr>
+                                <!-- ... más datos ... -->
+                                <tr><td><strong>Total</strong></td><td colspan="3"></td><td><strong>$950,000</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>`;
+                // Aquí se podría usar Chart.js para dibujar el gráfico
+            } else if (reportType === 'citas_terapeuta') {
+                 content = `
+                    <div class="chart-placeholder" id="citasTerapeutaChart">(Gráfico de Pastel: Distribución de Citas por Terapeuta)</div>
+                    <h4>Detalle de Citas por Terapeuta</h4>
+                     <div class="report-table-container">
+                        <table>
+                            <thead><tr><th>Terapeuta</th><th>Nº Citas</th><th>Horas Atendidas</th></tr></thead>
+                            <tbody>
+                                <tr><td>Dr. Ejemplo Q.</td><td>85</td><td>60.5 hrs</td></tr>
+                                <tr><td>Dra. Ana Salgado</td><td>70</td><td>55 hrs</td></tr>
+                                <!-- ... más datos ... -->
+                                 <tr><td><strong>Total</strong></td><td><strong>155</strong></td><td><strong>115.5 hrs</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>`;
+            } else if (reportType === 'servicios_populares') {
+                content = `
+                    <div class="chart-placeholder" id="serviciosPopularesChart">(Gráfico de Barras Horizontales: Servicios Más Solicitados)</div>
+                     <h4>Ranking de Servicios</h4>
+                     <div class="report-table-container">
+                        <table>
+                            <thead><tr><th>Servicio</th><th>Nº Solicitudes</th><th>Ingresos Generados</th></tr></thead>
+                            <tbody>
+                                <tr><td>Línea Vital - Esencial Flex 1</td><td>50</td><td>$9,000,000</td></tr>
+                                <tr><td>Consulta de Seguimiento</td><td>45</td><td>$6,750,000</td></tr>
+                                <!-- ... más datos ... -->
+                            </tbody>
+                        </table>
+                    </div>`;
+            } else if (reportType === 'desglose_agendamiento'){
+                // Basado en tus notas, esto es más un conjunto de métricas
+                content = `
+                    <h4>Desglose de Agendamiento (Mes Actual)</h4>
+                    <p><strong>Total de Atenciones Estimadas:</strong> 900</p>
+                    <p><strong>Total de Atenciones Realizadas:</strong> 850</p>
+                    <p><strong>Promedio Pacientes por Día (General):</strong> 30</p>
+                    <p><strong>Promedio Pacientes por Día (por Terapeuta Activo):</strong> 7.5 (Asumiendo 4 terapeutas)</p>
+                    <p><strong>Tasa de Ocupación General:</strong> 94%</p>
+                    <p><strong>Nuevos Pacientes:</strong> 60</p>
+                    <p><strong>Citas Canceladas:</strong> 25</p>
+                    <p><strong>Citas No Asistidas (No-Show):</strong> 10</p>
+                    <hr>
+                    <h5>Por Terapeuta:</h5>
+                    <div class="report-table-container">
+                        <table>
+                             <thead><tr><th>Terapeuta</th><th>Citas Realizadas</th><th>Tasa Ocupación Individual</th><th>Pacientes Nuevos Asignados</th></tr></thead>
+                             <tbody>
+                                <tr><td>Dr. Ejemplo Q.</td><td>220</td><td>96%</td><td>18</td></tr>
+                                <tr><td>Dra. Ana S.</td><td>210</td><td>93%</td><td>15</td></tr>
+                                <!-- ... -->
+                             </tbody>
+                        </table>
+                    </div>`;
+            }
+            else {
+                content = '<p style="text-align:center;">Reporte no implementado en esta simulación.</p>';
+            }
+            reportContentEl.innerHTML = content;
+        }, 1000); // Simular retraso de carga
+    }
+
+    function printReport() {
+        alert("Simulando impresión del reporte...");
+        // Se podría usar window.print() sobre una versión formateada del contenido del reporte.
+    }
+    function exportReport(format) {
+        alert(`Simulando exportación del reporte a ${format.toUpperCase()}...`);
+        // Para CSV: se generarían los datos en formato CSV y se descargarían.
+        // Para PDF: se usaría una librería como jsPDF o se generaría en el backend.
+    }
+</script>
+</body>
+</html>
